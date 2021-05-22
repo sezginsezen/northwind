@@ -22,6 +22,7 @@ public class ProductsController
         this.productService = productService;
     }
 
+    // controller
     @GetMapping("/getall")
     public List<Product> getAll()
     {
