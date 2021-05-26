@@ -14,26 +14,22 @@ import kodlamaio.northwind.dataAccess.abstracts.ProductDao;
 import kodlamaio.northwind.entities.concretes.Product;
 
 @Service
-public class ProductManager implements ProductService
-{
+public class ProductManager implements ProductService {
     private ProductDao productDao;
 
     @Autowired
-    public ProductManager(ProductDao productDao)
-    {
+    public ProductManager(ProductDao productDao) {
         super();
         this.productDao = productDao;
     }
 
     @Override
-    public DataResult<List<Product>> getAll()
-    {
+    public DataResult<List<Product>> getAll() {
         return new SuccessDataResult<List<Product>>(productDao.findAll(), "Data listelendi");
     }
 
     @Override
-    public Result add(Product product)
-    {
+    public Result add(Product product) {
         this.productDao.save(product);
         return new SuccessResult("Ürün eklendi");
     }
